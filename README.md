@@ -2,9 +2,21 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.6.
 
+## Initial setup
+Replace `project-slug` and `firebase-project-slug` in the following command with your own values
+* Run `make initial-setup project=project-slug firebase=firebase-project-slug`
+#### OR
+* Search and replace all instances of `NG_PROJECT` with your project name as a slug e.g. `ng-firebase`
+* Search and replace all instances of `FIREBASE_PROJECT` with your firebase project slug e.g. `ng-firebase`
+* Rename the following files:
+    * `.firebase.example` to `.firebaserc`
+    * `angular.json.example` to `angular.json`
+    * `firebase.json.example` to `firebase.json`
+    * `karma.conf.js.example` to `karma.conf.js`
+
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `npm run start:local` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## Code scaffolding
 
