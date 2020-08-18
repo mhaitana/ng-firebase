@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ng-firebase": {
+    "NG_PROJECT": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/ng-firebase",
+            "outputPath": "dist/NG_PROJECT",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -25,7 +25,8 @@
             "aot": true,
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/manifest.webmanifest"
             ],
             "styles": [
               "src/styles.scss"
@@ -33,6 +34,36 @@
             "scripts": []
           },
           "configurations": {
+            "local": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.local.ts"
+                }
+              ],
+              "serviceWorker": true,
+              "ngswConfigPath": "ngsw-config.json"
+            },
+            "testing": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.testing.ts"
+                }
+              ],
+              "serviceWorker": true,
+              "ngswConfigPath": "ngsw-config.json"
+            },
+            "staging": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.staging.ts"
+                }
+              ],
+              "serviceWorker": true,
+              "ngswConfigPath": "ngsw-config.json"
+            },
             "production": {
               "fileReplacements": [
                 {
@@ -59,25 +90,36 @@
                   "maximumWarning": "6kb",
                   "maximumError": "10kb"
                 }
-              ]
+              ],
+              "serviceWorker": true,
+              "ngswConfigPath": "ngsw-config.json"
             }
           }
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "ng-firebase:build"
+            "browserTarget": "NG_PROJECT:build"
           },
           "configurations": {
+            "local": {
+              "browserTarget": "NG_PROJECT:build:local"
+            },
+            "testing": {
+              "browserTarget": "NG_PROJECT:build:testing"
+            },
+            "staging": {
+              "browserTarget": "NG_PROJECT:build:staging"
+            },
             "production": {
-              "browserTarget": "ng-firebase:build:production"
+              "browserTarget": "NG_PROJECT:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ng-firebase:build"
+            "browserTarget": "NG_PROJECT:build"
           }
         },
         "test": {
@@ -89,7 +131,8 @@
             "karmaConfig": "karma.conf.js",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/manifest.webmanifest"
             ],
             "styles": [
               "src/styles.scss"
@@ -114,15 +157,29 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "ng-firebase:serve"
+            "devServerTarget": "NG_PROJECT:serve"
           },
           "configurations": {
+            "local": {
+              "devServerTarget": "NG_PROJECT:serve:local"
+            },
+            "testing": {
+              "devServerTarget": "NG_PROJECT:serve:testing"
+            },
+            "staging": {
+              "devServerTarget": "NG_PROJECT:serve:staging"
+            },
             "production": {
-              "devServerTarget": "ng-firebase:serve:production"
+              "devServerTarget": "NG_PROJECT:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {}
         }
       }
-    }},
-  "defaultProject": "ng-firebase"
+    }
+  },
+  "defaultProject": "NG_PROJECT"
 }

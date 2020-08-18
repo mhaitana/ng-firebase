@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'ng-firebase'`, () => {
+  it(`should have as title 'NG_PROJECT'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('ng-firebase');
+    expect(app.title).toEqual('NG_PROJECT');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('ng-firebase app is running!');
+    expect(compiled.querySelector('.content span').textContent).toContain('NG_PROJECT app is running!');
   });
 });

@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "FIREBASE_PROJECT": {
+      "hosting": {
+        "NG_PROJECT": [
+          "FIREBASE_PROJECT"
+        ]
+      }
+    }
+  }
+}
