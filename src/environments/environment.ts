@@ -4,7 +4,16 @@
 
 export const environment = {
     production: null,
-    environment: null
+    environment: null,
+    firebaseConfig: {
+        apiKey: null,
+        authDomain: null,
+        databaseURL: null,
+        projectId: null,
+        storageBucket: null,
+        messagingSenderId: null,
+        appId: null
+    }
 };
 
 /*

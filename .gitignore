@@ -5,7 +5,10 @@
 angular.json
 firebase.json
 karma.conf.js
-
+src/environments/environment.local.ts
+src/environments/environment.prod.ts
+src/environments/environment.staging.ts
+src/environments/environment.testing.ts
 
 # compiled output
 /dist

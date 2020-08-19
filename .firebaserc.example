@@ -1,9 +1,9 @@
 {
   "targets": {
-    "FIREBASE_PROJECT": {
+    "FIREBASE_PROJECT_ID": {
       "hosting": {
         "NG_PROJECT": [
-          "FIREBASE_PROJECT"
+          "FIREBASE_PROJECT_ID"
         ]
       }
     }
