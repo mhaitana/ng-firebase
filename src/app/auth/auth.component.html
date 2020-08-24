@@ -1,0 +1,6 @@
+<p>
+    Auth!
+    {{ (auth.user | async)?.uid }}
+    <button (click)="loginGoogle()" *ngIf="showLoginButton">Log in with Google</button>
+    <button (click)="logout()" *ngIf="showLogoutButton">Log out</button>
+</p>

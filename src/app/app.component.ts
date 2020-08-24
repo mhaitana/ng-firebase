@@ -1,4 +1,5 @@
-import { AfterViewInit, Component } from '@angular/core';
+import { AfterViewInit, ApplicationRef, Component } from '@angular/core';
+import { FirebaseApp } from '@angular/fire';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -8,6 +9,11 @@ import { environment } from 'src/environments/environment';
 })
 export class AppComponent implements AfterViewInit {
   title = 'NG_PROJECT';
+
+  constructor(public readonly firebaseApp: FirebaseApp, appRef: ApplicationRef) {
+    appRef.isStable.subscribe(it => console.log('isStable', it));
+    console.log(firebaseApp.name)
+  }
 
   ngAfterViewInit(): void {
     // Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
