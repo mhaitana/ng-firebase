@@ -1,6 +1,7 @@
-import { AfterViewInit, ApplicationRef, Component } from '@angular/core';
+import { AfterViewInit, ApplicationRef, Component, OnInit } from '@angular/core';
 import { FirebaseApp } from '@angular/fire';
 import { environment } from 'src/environments/environment';
+import { AuthService } from './services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -10,9 +11,14 @@ import { environment } from 'src/environments/environment';
 export class AppComponent implements AfterViewInit {
   title = 'NG_PROJECT';
 
-  constructor(public readonly firebaseApp: FirebaseApp, appRef: ApplicationRef) {
+  constructor(
+    public readonly firebaseApp: FirebaseApp,
+    appRef: ApplicationRef,
+    public auth: AuthService
+  ) {
     appRef.isStable.subscribe(it => console.log('isStable', it));
-    console.log(firebaseApp.name)
+    console.log(firebaseApp.name);
+    console.log(auth.isLoggedIn);
   }
 
   ngAfterViewInit(): void {

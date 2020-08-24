@@ -1,8 +1,30 @@
-<mdb-navbar SideClass="navbar navbar-dark indigo" [containerInside]="false">
-    <mdb-navbar-brand>
-        <a class="navbar-brand" href="">
-            ng-firebase
-        </a>
-    </mdb-navbar-brand>
+<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark indigo" [containerInside]="false">
+    <mdb-navbar-brand><a class="navbar-brand" href="/">ng-firebase</a></mdb-navbar-brand>
+    <links>
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link waves-light" mdbWavesEffect>Home<span class="sr-only">(current)</span></a>
+            </li>
+        </ul>
+        <ul class="navbar-nav ml-auto nav-flex-icons">
+            <li class="nav-item avatar dropdown" dropdown>
+                <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light"
+                    mdbWavesEffect>
+                    <span *ngIf="auth.isLoggedIn">
+                        {{ (auth.user$ | async)?.email }}
+                    </span>
+                    <span *ngIf="!auth.isLoggedIn">
+                        Login
+                    </span>
+                </a>
+                <div *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown dropdown-primary text-right" role="menu">
+                    <a *ngIf="!auth.isLoggedIn" class="dropdown-item waves-light" (click)="auth.loginGoogle()" mdbWavesEffect>Login with Google</a>
+                    <a *ngIf="!auth.isLoggedIn" class="dropdown-item waves-light" mdbWavesEffect>Register</a>
+                    <a *ngIf="auth.isLoggedIn" class="dropdown-item waves-light" mdbWavesEffect href="#">My account</a>
+                    <a *ngIf="auth.isLoggedIn" class="dropdown-item waves-light" (click)="auth.logout()" mdbWavesEffect>Log out</a>
+                </div>
+            </li>
+        </ul>
+    </links>
 </mdb-navbar>
 <router-outlet></router-outlet>

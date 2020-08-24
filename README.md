@@ -34,6 +34,12 @@ Run `npm run start:local` for a dev server. Navigate to `http://localhost:4200/`
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
+### New Model
+Run `ng generate class model-name --type=model`
+
+### New Service
+Run `ng generate service service-name`
+
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.

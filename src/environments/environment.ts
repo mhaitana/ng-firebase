@@ -3,17 +3,22 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-    production: null,
-    environment: null,
+    production: null as boolean,
+    environment: null as string,
     firebaseConfig: {
-        apiKey: null,
-        authDomain: null,
-        databaseURL: null,
-        projectId: null,
-        storageBucket: null,
-        messagingSenderId: null,
-        appId: null
-    }
+        apiKey: null as string,
+        authDomain: null as string,
+        databaseURL: null as string,
+        projectId: null as string,
+        storageBucket: null as string,
+        messagingSenderId: null as string,
+        appId: null as string
+    },
+    sendMailUrl: null as string,
+    stripeChargeUrl: null as string,
+    passwordRedirectUrl: null as string,
+    emailVerificationRedirectUrl: null as string,
+    stripePublishableKey: null as string
 };
 
 /*

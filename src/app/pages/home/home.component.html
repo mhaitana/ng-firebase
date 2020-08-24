@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12 my-5">
+            Using the {{ firebaseApp.name }} firebase app
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <h3>Users</h3>
+        </div>
+        <div *ngFor="let user of users" class="col-12">
+            {{ user.displayName }} | {{ user.email }} | {{ user.id }}
+        </div>
+        <div *ngIf="!users" class="col-12">Loading users...</div>
+        <div *ngIf="users?.length == 0" class="col-12">No users...</div>
+    </div>
+</div>
+<!-- <app-messaging></app-messaging> -->
