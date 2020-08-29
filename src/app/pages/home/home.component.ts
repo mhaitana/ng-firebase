@@ -28,10 +28,12 @@ export class HomeComponent implements OnInit, AfterViewInit {
       console.log('this.users', this.users);
     });
     const user = this.auth.user;
-    this.firebase.getDocument('users', user?.id).subscribe(data => {
-      this.user = data.data();
-      console.log('this.user', this.user);
-    });
+    if (user) {
+      this.firebase.getDocument('users', user?.id).subscribe(data => {
+        this.user = data.data();
+        console.log('this.user', this.user);
+      });
+    }
   }
 
   ngAfterViewInit(): void {

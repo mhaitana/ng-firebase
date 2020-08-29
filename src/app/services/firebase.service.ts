@@ -14,11 +14,22 @@ export class FirebaseService {
     return this.db.collection(collection).snapshotChanges();
   }
 
-  getNestedCollection(collection: string, document: string, subCollection: string): Observable<DocumentChangeAction<any>[]> {
-    return this.db.collection(collection).doc(document).collection(subCollection).snapshotChanges();
+  getNestedCollection(
+    collection: string,
+    document: string,
+    nestedCollection: string
+  ): Observable<DocumentChangeAction<any>[]> {
+    return this.db.collection(collection)
+      .doc(document)
+      .collection(nestedCollection)
+      .snapshotChanges();
   }
 
-  createDocument(collection: string, documentId: string, data: any): any {
+  createDocument(
+    collection: string,
+    documentId: string,
+    data: any
+  ): any {
     return this.db
       .collection(collection)
       .doc(documentId)
@@ -31,7 +42,13 @@ export class FirebaseService {
       });
   }
 
-  createNestedDocument(collection: string, documentId: string, nestedCollection: string, nestedDocumentId: string, data: any): any {
+  createNestedDocument(
+    collection: string,
+    documentId: string,
+    nestedCollection: string,
+    nestedDocumentId: string,
+    data: any
+  ): any {
     return this.db
       .collection(collection)
       .doc(documentId)

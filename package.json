@@ -3,7 +3,6 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
     "start:local": "ng serve --configuration=local",
     "start:test": "ng serve --configuration=testing",
     "start:stag": "ng serve --configuration=staging",
